@@ -1,0 +1,3 @@
+C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Source\UE4Playground\UE4Playground.Build.cs
+C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Source\UE4Playground.Target.cs
+C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Source\UE4PlaygroundEditor.Target.cs

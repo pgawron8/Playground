@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<None Include="..\..\UE4Playground.uproject" />
+		<Filter Include="Source">
+			<UniqueIdentifier>{BDBE9D76-9D3C-4E80-836B-68260903F6F4}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\UE4Playground.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<None Include="..\..\Source\UE4PlaygroundEditor.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<Filter Include="Config">
+			<UniqueIdentifier>{D9753BA8-3E72-4F9F-85AA-41CA2E4B2076}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Config\DefaultEditor.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultEngine.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultGame.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultInput.ini">
+			<Filter>Config</Filter>
+		</None >
+		<Filter Include="Source\UE4Playground">
+			<UniqueIdentifier>{9184F913-DF51-42A1-8897-7BA96425D26A}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\UE4Playground\UE4Playground.Build.cs">
+			<Filter>Source\UE4Playground</Filter>
+		</None >
+		<ClCompile Include="..\..\Source\UE4Playground\UE4Playground.cpp">
+			<Filter>Source\UE4Playground</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\UE4Playground\UE4Playground.h">
+			<Filter>Source\UE4Playground</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\UE4Playground\UE4PlaygroundCharacter.cpp">
+			<Filter>Source\UE4Playground</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\UE4Playground\UE4PlaygroundCharacter.h">
+			<Filter>Source\UE4Playground</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\UE4Playground\UE4PlaygroundGameMode.cpp">
+			<Filter>Source\UE4Playground</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\UE4Playground\UE4PlaygroundGameMode.h">
+			<Filter>Source\UE4Playground</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\UE4Playground\UE4PlaygroundHUD.cpp">
+			<Filter>Source\UE4Playground</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\UE4Playground\UE4PlaygroundHUD.h">
+			<Filter>Source\UE4Playground</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\UE4Playground\UE4PlaygroundProjectile.cpp">
+			<Filter>Source\UE4Playground</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\UE4Playground\UE4PlaygroundProjectile.h">
+			<Filter>Source\UE4Playground</Filter>
+		</ClInclude >
+	</ItemGroup>
+</Project>
