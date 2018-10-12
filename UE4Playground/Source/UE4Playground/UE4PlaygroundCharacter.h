@@ -84,9 +84,22 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
 	uint32 bUsingMotionControllers : 1;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = BurstShoot)
+		float TimeBetweenBursts = 0.5f;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = BurstShoot)
+		int NumOfShots = 3;
+
+	FTimerHandle BurstHandle;
+
 protected:
+
+	//setting up a burst shot
+	UFUNCTION()
+	void OnFire2();
 	
 	//creating alt fire
+	
 	void OnAltFire();
 
 	/** Fires a projectile. */

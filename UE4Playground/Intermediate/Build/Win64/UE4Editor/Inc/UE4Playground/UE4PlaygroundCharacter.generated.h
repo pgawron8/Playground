@@ -13,8 +13,28 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define UE4PLAYGROUND_UE4PlaygroundCharacter_generated_h
 
-#define UE4Playground_Source_UE4Playground_UE4PlaygroundCharacter_h_14_RPC_WRAPPERS
-#define UE4Playground_Source_UE4Playground_UE4PlaygroundCharacter_h_14_RPC_WRAPPERS_NO_PURE_DECLS
+#define UE4Playground_Source_UE4Playground_UE4PlaygroundCharacter_h_14_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execOnFire2) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->OnFire2(); \
+		P_NATIVE_END; \
+	}
+
+
+#define UE4Playground_Source_UE4Playground_UE4PlaygroundCharacter_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execOnFire2) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->OnFire2(); \
+		P_NATIVE_END; \
+	}
+
+
 #define UE4Playground_Source_UE4Playground_UE4PlaygroundCharacter_h_14_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAUE4PlaygroundCharacter(); \

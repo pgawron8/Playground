@@ -17,6 +17,7 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 	UE4PLAYGROUND_API UClass* Z_Construct_UClass_AUE4PlaygroundCharacter();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	UPackage* Z_Construct_UPackage__Script_UE4Playground();
+	UE4PLAYGROUND_API UFunction* Z_Construct_UFunction_AUE4PlaygroundCharacter_OnFire2();
 	ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USoundBase_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
@@ -29,6 +30,34 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 // End Cross Module References
 	void AUE4PlaygroundCharacter::StaticRegisterNativesAUE4PlaygroundCharacter()
 	{
+		UClass* Class = AUE4PlaygroundCharacter::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "OnFire2", &AUE4PlaygroundCharacter::execOnFire2 },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_AUE4PlaygroundCharacter_OnFire2_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AUE4PlaygroundCharacter_OnFire2_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "UE4PlaygroundCharacter.h" },
+		{ "ToolTip", "setting up a burst shot" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AUE4PlaygroundCharacter_OnFire2_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AUE4PlaygroundCharacter, "OnFire2", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x00080401, 0, nullptr, 0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AUE4PlaygroundCharacter_OnFire2_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AUE4PlaygroundCharacter_OnFire2_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AUE4PlaygroundCharacter_OnFire2()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AUE4PlaygroundCharacter_OnFire2_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	UClass* Z_Construct_UClass_AUE4PlaygroundCharacter_NoRegister()
 	{
@@ -37,9 +66,18 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 	struct Z_Construct_UClass_AUE4PlaygroundCharacter_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_NumOfShots_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_NumOfShots;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TimeBetweenBursts_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_TimeBetweenBursts;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bUsingMotionControllers_MetaData[];
 #endif
@@ -113,6 +151,9 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 		(UObject* (*)())Z_Construct_UClass_ACharacter,
 		(UObject* (*)())Z_Construct_UPackage__Script_UE4Playground,
 	};
+	const FClassFunctionLinkInfo Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AUE4PlaygroundCharacter_OnFire2, "OnFire2" }, // 1106483391
+	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::Class_MetaDataParams[] = {
 		{ "HideCategories", "Navigation" },
@@ -120,6 +161,20 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 		{ "ModuleRelativePath", "UE4PlaygroundCharacter.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_NumOfShots_MetaData[] = {
+		{ "Category", "BurstShoot" },
+		{ "ModuleRelativePath", "UE4PlaygroundCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_NumOfShots = { UE4CodeGen_Private::EPropertyClass::Int, "NumOfShots", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000005, 1, nullptr, STRUCT_OFFSET(AUE4PlaygroundCharacter, NumOfShots), METADATA_PARAMS(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_NumOfShots_MetaData, ARRAY_COUNT(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_NumOfShots_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_TimeBetweenBursts_MetaData[] = {
+		{ "Category", "BurstShoot" },
+		{ "ModuleRelativePath", "UE4PlaygroundCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_TimeBetweenBursts = { UE4CodeGen_Private::EPropertyClass::Float, "TimeBetweenBursts", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000005, 1, nullptr, STRUCT_OFFSET(AUE4PlaygroundCharacter, TimeBetweenBursts), METADATA_PARAMS(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_TimeBetweenBursts_MetaData, ARRAY_COUNT(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_TimeBetweenBursts_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_bUsingMotionControllers_MetaData[] = {
 		{ "Category", "Gameplay" },
@@ -264,6 +319,8 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_Mesh1P = { UE4CodeGen_Private::EPropertyClass::Object, "Mesh1P", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x00400000000b0009, 1, nullptr, STRUCT_OFFSET(AUE4PlaygroundCharacter, Mesh1P), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_Mesh1P_MetaData, ARRAY_COUNT(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_Mesh1P_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_NumOfShots,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_TimeBetweenBursts,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_bUsingMotionControllers,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_FireAnimation,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_FireSound,
@@ -288,7 +345,7 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 		&AUE4PlaygroundCharacter::StaticClass,
 		DependentSingletons, ARRAY_COUNT(DependentSingletons),
 		0x008000A0u,
-		nullptr, 0,
+		FuncInfo, ARRAY_COUNT(FuncInfo),
 		Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::PropPointers, ARRAY_COUNT(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::PropPointers),
 		"Game",
 		&StaticCppClassTypeInfo,
@@ -304,7 +361,7 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AUE4PlaygroundCharacter, 1852121561);
+	IMPLEMENT_CLASS(AUE4PlaygroundCharacter, 694084494);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AUE4PlaygroundCharacter(Z_Construct_UClass_AUE4PlaygroundCharacter, &AUE4PlaygroundCharacter::StaticClass, TEXT("/Script/UE4Playground"), TEXT("AUE4PlaygroundCharacter"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AUE4PlaygroundCharacter);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

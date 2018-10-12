@@ -11,6 +11,8 @@
 #include "Kismet/GameplayStatics.h"
 #include "MotionControllerComponent.h"
 #include "XRMotionControllerBase.h" // for FXRMotionControllerBase::RightHandSourceId
+#include "Engine/Public/TimerManager.h"
+#include "Engine.h"
 
 DEFINE_LOG_CATEGORY_STATIC(LogFPChar, Warning, All);
 
@@ -122,6 +124,8 @@ void AUE4PlaygroundCharacter::SetupPlayerInputComponent(class UInputComponent* P
 
 	// Bind alt fire event
 	PlayerInputComponent->BindAction("AltFire", IE_Pressed, this, &AUE4PlaygroundCharacter::OnAltFire);
+
+	PlayerInputComponent->BindAction("Fire2", IE_Pressed, this, &AUE4PlaygroundCharacter::OnFire2);
 
 	// Enable touchscreen input
 	EnableTouchscreenMovement(PlayerInputComponent);
@@ -302,53 +306,70 @@ bool AUE4PlaygroundCharacter::EnableTouchscreenMovement(class UInputComponent* P
 	return false;
 }
 
+void AUE4PlaygroundCharacter::OnFire2()
+{
+	//Get the world timers
+	//fire once now
+	TArray<FTimerHandle> BurstHandle2;
+	//FTimerHandle BurstHandle3;
+	BurstHandle2.SetNum(NumOfShots+1, true);
+
+	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Action Received"));
+
+	for (int i = 0; i <= NumOfShots; i++)
+	{ 
+		GetWorld()->GetTimerManager().SetTimer(BurstHandle2[i], this, &AUE4PlaygroundCharacter::OnAltFire, (0.0f + (TimeBetweenBursts* i)), false);
+	}
+
+}
+
 void AUE4PlaygroundCharacter::OnAltFire()
 {
 	// For Now just dothe same for OnFire(), but use the Alt Ammo, test to make sure I'm not stupid
-
-
-	// try and fire a projectile
-	if (AltProjClass != NULL)
-	{
-		UWorld* const World = GetWorld();
-		if (World != NULL)
+	
+		// try and fire a projectile
+		if (AltProjClass != NULL)
 		{
-			if (bUsingMotionControllers)
+			UWorld* const World = GetWorld();
+			if (World != NULL)
 			{
-				const FRotator SpawnRotation = VR_MuzzleLocation->GetComponentRotation();
-				const FVector SpawnLocation = VR_MuzzleLocation->GetComponentLocation();
-				World->SpawnActor<AUE4PlaygroundProjectile>(AltProjClass, SpawnLocation, SpawnRotation);
-			}
-			else
-			{
-				const FRotator SpawnRotation = GetControlRotation();
-				// MuzzleOffset is in camera space, so transform it to world space before offsetting from the character location to find the final muzzle position
-				const FVector SpawnLocation = ((FP_MuzzleLocation != nullptr) ? FP_MuzzleLocation->GetComponentLocation() : GetActorLocation()) + SpawnRotation.RotateVector(GunOffset);
+				if (bUsingMotionControllers)
+				{
+					const FRotator SpawnRotation = VR_MuzzleLocation->GetComponentRotation();
+					const FVector SpawnLocation = VR_MuzzleLocation->GetComponentLocation();
+					World->SpawnActor<AUE4PlaygroundProjectile>(AltProjClass, SpawnLocation, SpawnRotation);
+				}
+				else
+				{
+					const FRotator SpawnRotation = GetControlRotation();
+					// MuzzleOffset is in camera space, so transform it to world space before offsetting from the character location to find the final muzzle position
+					const FVector SpawnLocation = ((FP_MuzzleLocation != nullptr) ? FP_MuzzleLocation->GetComponentLocation() : GetActorLocation()) + SpawnRotation.RotateVector(GunOffset);
 
-				//Set Spawn Collision Handling Override
-				FActorSpawnParameters ActorSpawnParams;
-				ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
+					//Set Spawn Collision Handling Override
+					FActorSpawnParameters ActorSpawnParams;
+					ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
 
-				// spawn the projectile at the muzzle
-				World->SpawnActor<AUE4PlaygroundProjectile>(AltProjClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+					// spawn the projectile at the muzzle
+					World->SpawnActor<AUE4PlaygroundProjectile>(AltProjClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+				}
 			}
 		}
-	}
 
-	// try and play the sound if specified
-	if (FireSound != NULL)
-	{
-		UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
-	}
-
-	// try and play a firing animation if specified
-	if (FireAnimation != NULL)
-	{
-		// Get the animation object for the arms mesh
-		UAnimInstance* AnimInstance = Mesh1P->GetAnimInstance();
-		if (AnimInstance != NULL)
+		// try and play the sound if specified
+		if (FireSound != NULL)
 		{
-			AnimInstance->Montage_Play(FireAnimation, 1.f);
+			UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
 		}
-	}
+
+		// try and play a firing animation if specified
+		if (FireAnimation != NULL)
+		{
+			// Get the animation object for the arms mesh
+			UAnimInstance* AnimInstance = Mesh1P->GetAnimInstance();
+			if (AnimInstance != NULL)
+			{
+				AnimInstance->Montage_Play(FireAnimation, 1.f);
+			}
+		}
 }
+
