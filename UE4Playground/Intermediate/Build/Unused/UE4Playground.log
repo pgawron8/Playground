@@ -1,20 +1,7 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build.
-  Creating makefile for UE4PlaygroundEditor (ini files are newer than UBTMakefile)
-  Using Visual Studio 2015 14.0 toolchain (C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC) and Windows 10.0.14393.0 SDK (C:\Program Files (x86)\Windows Kits\10).
   Parsing headers for UE4PlaygroundEditor
     Running UnrealHeaderTool "C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\UE4Playground.uproject" "C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Intermediate\Build\Win64\UE4PlaygroundEditor\Development\UE4PlaygroundEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -installed
-  Reflection code generated for UE4PlaygroundEditor in 19.5265791 seconds
-  Deleting old hot reload file: "C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Binaries\Win64\UE4Editor-UE4Playground-1242.dll".
-  Deleting old hot reload file: "C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Binaries\Win64\UE4Editor-UE4Playground-1242.pdb".
-  Deleting old hot reload file: "C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Binaries\Win64\UE4Editor-UE4Playground-3226.dll".
-  Deleting old hot reload file: "C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Binaries\Win64\UE4Editor-UE4Playground-3226.pdb".
-  Deleting old hot reload file: "C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Binaries\Win64\UE4Editor-UE4Playground-3567.dll".
-  Deleting old hot reload file: "C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Binaries\Win64\UE4Editor-UE4Playground-3567.pdb".
-  Deleting old hot reload file: "C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Binaries\Win64\UE4Editor-UE4Playground-8927.dll".
-  Unable to delete old hot reload file: "C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Binaries\Win64\UE4Editor-UE4Playground-8927.dll". Error: Access to the path 'C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Binaries\Win64\UE4Editor-UE4Playground-8927.dll' is denied.
-  Deleting old hot reload file: "C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Binaries\Win64\UE4Editor-UE4Playground-8927.pdb".
-  Deleting old hot reload file: "C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Binaries\Win64\UE4Editor-UE4Playground-9766.dll".
-  Deleting old hot reload file: "C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Binaries\Win64\UE4Editor-UE4Playground-9766.pdb".
+  Reflection code generated for UE4PlaygroundEditor in 15.710502 seconds
   Building 5 actions with 4 processes...
     [1/5] UE4PlaygroundCharacter.gen.cpp
     [2/5] UE4PlaygroundGameMode.cpp
@@ -24,4 +11,4 @@
     [5/5] UE4Editor-UE4Playground.dll
        Creating library C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Intermediate\Build\Win64\UE4Editor\Development\UE4Playground\UE4Editor-UE4Playground.suppressed.lib and object C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Intermediate\Build\Win64\UE4Editor\Development\UE4Playground\UE4Editor-UE4Playground.suppressed.exp
   Deploying UE4PlaygroundEditor Win64 Development...
-  Total build time: 49.37 seconds (Parallel executor: 17.98 seconds)
+  Total build time: 34.15 seconds (Parallel executor: 16.12 seconds)

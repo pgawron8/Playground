@@ -8,6 +8,13 @@
 
 class UInputComponent;
 
+enum Eweapon
+{
+	Basic  UMETA(DisplayName = "Basic"),
+	Burst  UMETA(DisplayName = "Burst"),
+	Teleport UMETA(DisplayName = "Teleport")
+};
+
 UCLASS(config=Game)
 class AUE4PlaygroundCharacter : public ACharacter
 {
@@ -72,6 +79,12 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = Projectile)
 		TSubclassOf<class AUE4PlaygroundProjectile> AltProjClass;
 
+	UPROPERTY(EditDefaultsOnly, Category = Projectile)
+		TSubclassOf<class AUE4PlaygroundProjectile> TPProjClass;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	AUE4PlaygroundProjectile* LastTPShot;
+
 	/** Sound to play each time we fire */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Gameplay)
 	class USoundBase* FireSound;
@@ -90,9 +103,17 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = BurstShoot)
 		int NumOfShots = 3;
 
-	FTimerHandle BurstHandle;
+	//timers for burst shooting
+	TArray<FTimerHandle> BurstHandle2;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = TeleportGun)
+		bool bIsUsingTPGun = false;
+
+	Eweapon CurrentWeapon = Basic;
 
 protected:
+
+	void OnToggleTPGun();
 
 	//setting up a burst shot
 	UFUNCTION()
