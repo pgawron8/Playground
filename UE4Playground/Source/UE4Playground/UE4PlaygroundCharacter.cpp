@@ -433,13 +433,16 @@ void AUE4PlaygroundCharacter::OnToggleTPGun()
 	//basic to Burst
 	case 0: CurrentWeapon = Burst;
 		bIsUsingTPGun = false;
+		FP_Gun->SetMaterial(0, BurstGunMat);
 		break;
 	//burst to teleport gun
 	case 1: CurrentWeapon = Teleport;
 		bIsUsingTPGun = true;
+		FP_Gun->SetMaterial(0, TPGunMat);
 		break;
 	case 2: CurrentWeapon = Basic;
 		bIsUsingTPGun = false;
+		FP_Gun->SetMaterial(0, BasicGunMat);
 		break;
 	default: break;
 

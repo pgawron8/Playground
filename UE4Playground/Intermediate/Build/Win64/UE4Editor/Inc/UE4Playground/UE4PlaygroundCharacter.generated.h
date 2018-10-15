@@ -115,4 +115,8 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 #define CURRENT_FILE_ID UE4Playground_Source_UE4Playground_UE4PlaygroundCharacter_h
 
 
+#define FOREACH_ENUM_EWEAPON(op) \
+	op(Basic) \
+	op(Burst) \
+	op(Teleport) 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

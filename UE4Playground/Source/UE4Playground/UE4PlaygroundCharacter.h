@@ -7,7 +7,7 @@
 #include "UE4PlaygroundCharacter.generated.h"
 
 class UInputComponent;
-
+UENUM()
 enum Eweapon
 {
 	Basic  UMETA(DisplayName = "Basic"),
@@ -54,6 +54,17 @@ class AUE4PlaygroundCharacter : public ACharacter
 
 public:
 	AUE4PlaygroundCharacter();
+
+	//UPROPERTY(VisibleAnywhere)
+		//class UStaticMeshComponent* GunMesh;
+	UPROPERTY(EditAnywhere)
+	class UMaterial* BasicGunMat;
+
+	UPROPERTY(EditAnywhere)
+	class UMaterial* TPGunMat;
+
+	UPROPERTY(EditAnywhere)
+	class UMaterial* BurstGunMat;
 
 protected:
 	virtual void BeginPlay();
@@ -109,7 +120,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = TeleportGun)
 		bool bIsUsingTPGun = false;
 
-	Eweapon CurrentWeapon = Basic;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TEnumAsByte<Eweapon> CurrentWeapon = Basic;
 
 protected:
 
@@ -118,7 +130,7 @@ protected:
 	//setting up a burst shot
 	UFUNCTION()
 	void OnFire2();
-	
+
 	//creating alt fire
 	
 	void OnAltFire();
