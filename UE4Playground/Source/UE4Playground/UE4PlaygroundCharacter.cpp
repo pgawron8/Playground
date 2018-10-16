@@ -128,7 +128,7 @@ void AUE4PlaygroundCharacter::SetupPlayerInputComponent(class UInputComponent* P
 
 	PlayerInputComponent->BindAction("Fire2", IE_Pressed, this, &AUE4PlaygroundCharacter::OnFire2);
 
-	PlayerInputComponent->BindAction("ToggleTPGun", IE_Pressed, this, &AUE4PlaygroundCharacter::OnToggleTPGun);
+	PlayerInputComponent->BindAction("ToggleGun", IE_Pressed, this, &AUE4PlaygroundCharacter::OnToggleGun);
 
 	// Enable touchscreen input
 	EnableTouchscreenMovement(PlayerInputComponent);
@@ -150,11 +150,11 @@ void AUE4PlaygroundCharacter::SetupPlayerInputComponent(class UInputComponent* P
 
 void AUE4PlaygroundCharacter::OnFire()
 {
-
+	//need world for every path anyways, get it now
 	UWorld* const World = GetWorld();
 
 	//if set to use TP gun and Projectile isn't null
-	if (TPProjClass != NULL && CurrentWeapon == Teleport) //bIsUsingTPGun)
+	if (TPProjClass != NULL && CurrentWeapon == Teleport)
 	{
 		if (World != NULL)
 		{
@@ -162,6 +162,7 @@ void AUE4PlaygroundCharacter::OnFire()
 			if (LastTPShot != NULL)
 			{
 				LastTPShot->Destroy();
+				LastTPShot = nullptr;
 			}
 
 			if (bUsingMotionControllers)
@@ -182,9 +183,12 @@ void AUE4PlaygroundCharacter::OnFire()
 
 				// spawn the projectile at the muzzle
 				LastTPShot = World->SpawnActor<AUE4PlaygroundProjectile>(TPProjClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+				PlayGunSnd();
+				PlayGunAnim();
 			}
 		}
 	}
+	//If we're using the basic gun
 	else if(ProjectileClass != NULL && CurrentWeapon == Basic)
 	{
 		if (World != NULL)
@@ -207,29 +211,23 @@ void AUE4PlaygroundCharacter::OnFire()
 
 				// spawn the projectile at the muzzle
 				World->SpawnActor<AUE4PlaygroundProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+
+				PlayGunSnd();
+				PlayGunAnim();
 			}
 		}
 	}
-
+	//if we're using burst
 	else if (CurrentWeapon == Burst)
 	{
-		OnFire2();
-	}
+		//Set up Array of Timers
+		BurstHandle2.SetNum(NumOfShots + 1, true);
 
-	// try and play the sound if specified
-	if (FireSound != NULL)
-	{
-		UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
-	}
-
-	// try and play a firing animation if specified
-	if (FireAnimation != NULL)
-	{
-		// Get the animation object for the arms mesh
-		UAnimInstance* AnimInstance = Mesh1P->GetAnimInstance();
-		if (AnimInstance != NULL)
+		//For each timer
+		for (int i = 0; i <= NumOfShots; i++)
 		{
-			AnimInstance->Montage_Play(FireAnimation, 1.f);
+			//Set Timers to incriments of TimeBetweenBursts
+			GetWorld()->GetTimerManager().SetTimer(BurstHandle2[i], this, &AUE4PlaygroundCharacter::OnFire2, (0.0f + (TimeBetweenBursts* i)), false);
 		}
 	}
 }
@@ -349,86 +347,74 @@ bool AUE4PlaygroundCharacter::EnableTouchscreenMovement(class UInputComponent* P
 
 void AUE4PlaygroundCharacter::OnFire2()
 {
-	//Get the world timers
-	//fire once now
-	
-	//FTimerHandle BurstHandle3;
-	BurstHandle2.SetNum(NumOfShots+1, true);
+	UWorld* const World = GetWorld();
+	if (World != NULL)
+	{
+		if (bUsingMotionControllers)
+		{
+			const FRotator SpawnRotation = VR_MuzzleLocation->GetComponentRotation();
+			const FVector SpawnLocation = VR_MuzzleLocation->GetComponentLocation();
+			World->SpawnActor<AUE4PlaygroundProjectile>(ProjectileClass, SpawnLocation, SpawnRotation);
+		}
+		else
+		{
+			const FRotator SpawnRotation = GetControlRotation();
+			// MuzzleOffset is in camera space, so transform it to world space before offsetting from the character location to find the final muzzle position
+			const FVector SpawnLocation = ((FP_MuzzleLocation != nullptr) ? FP_MuzzleLocation->GetComponentLocation() : GetActorLocation()) + SpawnRotation.RotateVector(GunOffset);
 
-	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Action Received"));
+			//Set Spawn Collision Handling Override
+			FActorSpawnParameters ActorSpawnParams;
+			ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
 
-	for (int i = 0; i <= NumOfShots; i++)
-	{ 
-		GetWorld()->GetTimerManager().SetTimer(BurstHandle2[i], this, &AUE4PlaygroundCharacter::OnAltFire, (0.0f + (TimeBetweenBursts* i)), false);
+			// spawn the projectile at the muzzle
+			World->SpawnActor<AUE4PlaygroundProjectile>(AltProjClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+			PlayGunSnd();
+			PlayGunAnim();
+		}
+	}
+}
+
+void AUE4PlaygroundCharacter::PlayGunSnd()
+{
+	// try and play the sound if specified
+	if (FireSound != NULL)
+	{
+		UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
 	}
 
+}
+
+void AUE4PlaygroundCharacter::PlayGunAnim()
+{
+	// try and play a firing animation if specified
+	if (FireAnimation != NULL)
+	{
+		// Get the animation object for the arms mesh
+		UAnimInstance* AnimInstance = Mesh1P->GetAnimInstance();
+		if (AnimInstance != NULL)
+		{
+			AnimInstance->Montage_Play(FireAnimation, 1.f);
+		}
+	}
 }
 
 void AUE4PlaygroundCharacter::OnAltFire()
 {
-	// For Now just dothe same for OnFire(), but use the Alt Ammo, test to make sure I'm not stupid
-	if (TPProjClass != NULL && bIsUsingTPGun)
+	//If TP Gun ult fire
+	if (TPProjClass != NULL && bIsUsingTPGun && LastTPShot !=nullptr)
 	{
+
+		//Set location to projectile location, then destroy
 		this->SetActorLocation(LastTPShot->GetActorLocation());
 		LastTPShot->Destroy();
+		LastTPShot = nullptr;
 	}
-		// try and fire a projectile
-		else if (AltProjClass != NULL)
-		{
-			UWorld* const World = GetWorld();
-			if (World != NULL)
-			{
-				if (bUsingMotionControllers)
-				{
-					const FRotator SpawnRotation = VR_MuzzleLocation->GetComponentRotation();
-					const FVector SpawnLocation = VR_MuzzleLocation->GetComponentLocation();
-					World->SpawnActor<AUE4PlaygroundProjectile>(AltProjClass, SpawnLocation, SpawnRotation);
-				}
-				else
-				{
-					const FRotator SpawnRotation = GetControlRotation();
-					// MuzzleOffset is in camera space, so transform it to world space before offsetting from the character location to find the final muzzle position
-					const FVector SpawnLocation = ((FP_MuzzleLocation != nullptr) ? FP_MuzzleLocation->GetComponentLocation() : GetActorLocation()) + SpawnRotation.RotateVector(GunOffset);
 
-					//Set Spawn Collision Handling Override
-					FActorSpawnParameters ActorSpawnParams;
-					ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
-
-					// spawn the projectile at the muzzle
-					World->SpawnActor<AUE4PlaygroundProjectile>(AltProjClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
-				}
-			}
-		}
-
-		// try and play the sound if specified
-		if (FireSound != NULL)
-		{
-			UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
-		}
-
-		// try and play a firing animation if specified
-		if (FireAnimation != NULL)
-		{
-			// Get the animation object for the arms mesh
-			UAnimInstance* AnimInstance = Mesh1P->GetAnimInstance();
-			if (AnimInstance != NULL)
-			{
-				AnimInstance->Montage_Play(FireAnimation, 1.f);
-			}
-		}
+	//set up other alt fires later
 }
 
-void AUE4PlaygroundCharacter::OnToggleTPGun()
+void AUE4PlaygroundCharacter::OnToggleGun()
 {
-	/*if (bIsUsingTPGun)
-	{
-		bIsUsingTPGun = false;
-	}
-	else
-	{
-		bIsUsingTPGun = true;
-	}*/
-
 	switch (CurrentWeapon) {
 	//basic to Burst
 	case 0: CurrentWeapon = Burst;
@@ -437,6 +423,7 @@ void AUE4PlaygroundCharacter::OnToggleTPGun()
 		break;
 	//burst to teleport gun
 	case 1: CurrentWeapon = Teleport;
+		LastTPShot = nullptr;
 		bIsUsingTPGun = true;
 		FP_Gun->SetMaterial(0, TPGunMat);
 		break;

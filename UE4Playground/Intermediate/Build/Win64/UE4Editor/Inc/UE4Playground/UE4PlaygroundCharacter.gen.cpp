@@ -246,6 +246,7 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_CurrentWeapon_MetaData[] = {
 		{ "Category", "UE4PlaygroundCharacter" },
 		{ "ModuleRelativePath", "UE4PlaygroundCharacter.h" },
+		{ "ToolTip", "Holder for current weapon type" },
 	};
 #endif
 	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_CurrentWeapon = { UE4CodeGen_Private::EPropertyClass::Byte, "CurrentWeapon", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000005, 1, nullptr, STRUCT_OFFSET(AUE4PlaygroundCharacter, CurrentWeapon), Z_Construct_UEnum_UE4Playground_Eweapon, METADATA_PARAMS(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_CurrentWeapon_MetaData, ARRAY_COUNT(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_CurrentWeapon_MetaData)) };
@@ -253,6 +254,7 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_bIsUsingTPGun_MetaData[] = {
 		{ "Category", "TeleportGun" },
 		{ "ModuleRelativePath", "UE4PlaygroundCharacter.h" },
+		{ "ToolTip", "bool for checking if using TP Gun" },
 	};
 #endif
 	void Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_bIsUsingTPGun_SetBit(void* Obj)
@@ -264,6 +266,7 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_NumOfShots_MetaData[] = {
 		{ "Category", "BurstShoot" },
 		{ "ModuleRelativePath", "UE4PlaygroundCharacter.h" },
+		{ "ToolTip", "Number of shots in a burst" },
 	};
 #endif
 	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_NumOfShots = { UE4CodeGen_Private::EPropertyClass::Int, "NumOfShots", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000005, 1, nullptr, STRUCT_OFFSET(AUE4PlaygroundCharacter, NumOfShots), METADATA_PARAMS(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_NumOfShots_MetaData, ARRAY_COUNT(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_NumOfShots_MetaData)) };
@@ -271,6 +274,7 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_TimeBetweenBursts_MetaData[] = {
 		{ "Category", "BurstShoot" },
 		{ "ModuleRelativePath", "UE4PlaygroundCharacter.h" },
+		{ "ToolTip", "Time to set between each shot for burst" },
 	};
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_TimeBetweenBursts = { UE4CodeGen_Private::EPropertyClass::Float, "TimeBetweenBursts", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000005, 1, nullptr, STRUCT_OFFSET(AUE4PlaygroundCharacter, TimeBetweenBursts), METADATA_PARAMS(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_TimeBetweenBursts_MetaData, ARRAY_COUNT(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_TimeBetweenBursts_MetaData)) };
@@ -306,6 +310,7 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_LastTPShot_MetaData[] = {
 		{ "Category", "UE4PlaygroundCharacter" },
 		{ "ModuleRelativePath", "UE4PlaygroundCharacter.h" },
+		{ "ToolTip", "Keeping track of last shot for TP so that you can't have two things to TP to at once)" },
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_LastTPShot = { UE4CodeGen_Private::EPropertyClass::Object, "LastTPShot", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000020015, 1, nullptr, STRUCT_OFFSET(AUE4PlaygroundCharacter, LastTPShot), Z_Construct_UClass_AUE4PlaygroundProjectile_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_LastTPShot_MetaData, ARRAY_COUNT(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_LastTPShot_MetaData)) };
@@ -313,6 +318,7 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_TPProjClass_MetaData[] = {
 		{ "Category", "Projectile" },
 		{ "ModuleRelativePath", "UE4PlaygroundCharacter.h" },
+		{ "ToolTip", "Projectile Class for TP proj" },
 	};
 #endif
 	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_TPProjClass = { UE4CodeGen_Private::EPropertyClass::Class, "TPProjClass", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0014000000010001, 1, nullptr, STRUCT_OFFSET(AUE4PlaygroundCharacter, TPProjClass), Z_Construct_UClass_AUE4PlaygroundProjectile_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_TPProjClass_MetaData, ARRAY_COUNT(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_TPProjClass_MetaData)) };
@@ -360,6 +366,7 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_BurstGunMat_MetaData[] = {
 		{ "Category", "UE4PlaygroundCharacter" },
 		{ "ModuleRelativePath", "UE4PlaygroundCharacter.h" },
+		{ "ToolTip", "Material for BurstGun" },
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_BurstGunMat = { UE4CodeGen_Private::EPropertyClass::Object, "BurstGunMat", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000001, 1, nullptr, STRUCT_OFFSET(AUE4PlaygroundCharacter, BurstGunMat), Z_Construct_UClass_UMaterial_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_BurstGunMat_MetaData, ARRAY_COUNT(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_BurstGunMat_MetaData)) };
@@ -367,6 +374,7 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_TPGunMat_MetaData[] = {
 		{ "Category", "UE4PlaygroundCharacter" },
 		{ "ModuleRelativePath", "UE4PlaygroundCharacter.h" },
+		{ "ToolTip", "Material for TPGun" },
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_TPGunMat = { UE4CodeGen_Private::EPropertyClass::Object, "TPGunMat", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000001, 1, nullptr, STRUCT_OFFSET(AUE4PlaygroundCharacter, TPGunMat), Z_Construct_UClass_UMaterial_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_TPGunMat_MetaData, ARRAY_COUNT(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_TPGunMat_MetaData)) };
@@ -374,7 +382,7 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_BasicGunMat_MetaData[] = {
 		{ "Category", "UE4PlaygroundCharacter" },
 		{ "ModuleRelativePath", "UE4PlaygroundCharacter.h" },
-		{ "ToolTip", "UPROPERTY(VisibleAnywhere)\nclass UStaticMeshComponent* GunMesh;" },
+		{ "ToolTip", "Material for Basic gun" },
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_BasicGunMat = { UE4CodeGen_Private::EPropertyClass::Object, "BasicGunMat", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000001, 1, nullptr, STRUCT_OFFSET(AUE4PlaygroundCharacter, BasicGunMat), Z_Construct_UClass_UMaterial_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_BasicGunMat_MetaData, ARRAY_COUNT(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_BasicGunMat_MetaData)) };
@@ -503,7 +511,7 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AUE4PlaygroundCharacter, 3120635023);
+	IMPLEMENT_CLASS(AUE4PlaygroundCharacter, 3180382190);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AUE4PlaygroundCharacter(Z_Construct_UClass_AUE4PlaygroundCharacter, &AUE4PlaygroundCharacter::StaticClass, TEXT("/Script/UE4Playground"), TEXT("AUE4PlaygroundCharacter"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AUE4PlaygroundCharacter);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

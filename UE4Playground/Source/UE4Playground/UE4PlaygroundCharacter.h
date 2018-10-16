@@ -6,6 +6,8 @@
 #include "GameFramework/Character.h"
 #include "UE4PlaygroundCharacter.generated.h"
 
+
+//declare Enum class for what weapon we're on
 class UInputComponent;
 UENUM()
 enum Eweapon
@@ -55,14 +57,15 @@ class AUE4PlaygroundCharacter : public ACharacter
 public:
 	AUE4PlaygroundCharacter();
 
-	//UPROPERTY(VisibleAnywhere)
-		//class UStaticMeshComponent* GunMesh;
+//Material for Basic gun
 	UPROPERTY(EditAnywhere)
 	class UMaterial* BasicGunMat;
 
+	//Material for TPGun
 	UPROPERTY(EditAnywhere)
 	class UMaterial* TPGunMat;
 
+	//Material for BurstGun
 	UPROPERTY(EditAnywhere)
 	class UMaterial* BurstGunMat;
 
@@ -90,9 +93,11 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = Projectile)
 		TSubclassOf<class AUE4PlaygroundProjectile> AltProjClass;
 
+	//Projectile Class for TP proj
 	UPROPERTY(EditDefaultsOnly, Category = Projectile)
 		TSubclassOf<class AUE4PlaygroundProjectile> TPProjClass;
 
+	//Keeping track of last shot for TP so that you can't have two things to TP to at once)
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	AUE4PlaygroundProjectile* LastTPShot;
 
@@ -108,31 +113,41 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
 	uint32 bUsingMotionControllers : 1;
 
+	//Time to set between each shot for burst
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = BurstShoot)
 		float TimeBetweenBursts = 0.5f;
 	
+	//Number of shots in a burst
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = BurstShoot)
 		int NumOfShots = 3;
 
 	//timers for burst shooting
 	TArray<FTimerHandle> BurstHandle2;
 
+	//bool for checking if using TP Gun
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = TeleportGun)
 		bool bIsUsingTPGun = false;
 
+	//Holder for current weapon type
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TEnumAsByte<Eweapon> CurrentWeapon = Basic;
 
 protected:
 
-	void OnToggleTPGun();
+	//Swapping Guns
+	void OnToggleGun();
 
 	//setting up a burst shot
 	UFUNCTION()
 	void OnFire2();
 
+	//function to play sound
+	void PlayGunSnd();
+
+	//function to play anim
+	void PlayGunAnim();
+
 	//creating alt fire
-	
 	void OnAltFire();
 
 	/** Fires a projectile. */

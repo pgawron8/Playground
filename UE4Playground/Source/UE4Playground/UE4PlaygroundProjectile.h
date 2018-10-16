@@ -22,6 +22,7 @@ class AUE4PlaygroundProjectile : public AActor
 public:
 	AUE4PlaygroundProjectile();
 
+
 	/** called when projectile hits something */
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
