@@ -1,4 +1,17 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build.
-  Target is up to date
+  Creating makefile for hot reloading UE4PlaygroundEditor (modules to compile have changed)
+  Compiling game modules for hot reload
+  Using Visual Studio 2015 14.0 toolchain (C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC) and Windows 10.0.14393.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+  Parsing headers for UE4PlaygroundEditor
+    Running UnrealHeaderTool "C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\UE4Playground.uproject" "C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Intermediate\Build\Win64\UE4PlaygroundEditor\Development\UE4PlaygroundEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -installed
+  Reflection code generated for UE4PlaygroundEditor in 14.7013716 seconds
+  Building 5 actions with 4 processes...
+    [1/5] UE4PlaygroundCharacter.gen.cpp
+    [2/5] UE4PlaygroundGameMode.cpp
+    [3/5] UE4PlaygroundCharacter.cpp
+    [4/5] UE4Editor-UE4Playground-3055.lib
+       Creating library C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Intermediate\Build\Win64\UE4Editor\Development\UE4Playground\UE4Editor-UE4Playground-3055.lib and object C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Intermediate\Build\Win64\UE4Editor\Development\UE4Playground\UE4Editor-UE4Playground-3055.exp
+    [5/5] UE4Editor-UE4Playground-3055.dll
+       Creating library C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Intermediate\Build\Win64\UE4Editor\Development\UE4Playground\UE4Editor-UE4Playground-3055.suppressed.lib and object C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Intermediate\Build\Win64\UE4Editor\Development\UE4Playground\UE4Editor-UE4Playground-3055.suppressed.exp
   Deploying UE4PlaygroundEditor Win64 Development...
-  Total build time: 1.53 seconds (NoActionsToExecute executor: 0.00 seconds)
+  Total build time: 44.69 seconds (Parallel executor: 16.40 seconds)

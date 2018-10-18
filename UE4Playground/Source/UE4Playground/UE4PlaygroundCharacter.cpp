@@ -106,6 +106,11 @@ void AUE4PlaygroundCharacter::BeginPlay()
 		VR_Gun->SetHiddenInGame(true, true);
 		Mesh1P->SetHiddenInGame(false, true);
 	}
+
+	//all guns start at full ammo
+	CurrentBasicClip = BasicGunClip;
+	CurrentBurstClip = BurstGunClip;
+	CurrentTPClip = TPGunClip;
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -127,8 +132,11 @@ void AUE4PlaygroundCharacter::SetupPlayerInputComponent(class UInputComponent* P
 	PlayerInputComponent->BindAction("AltFire", IE_Pressed, this, &AUE4PlaygroundCharacter::OnAltFire);
 
 	PlayerInputComponent->BindAction("Fire2", IE_Pressed, this, &AUE4PlaygroundCharacter::OnFire2);
-
+	//Bind Toggle Gun
 	PlayerInputComponent->BindAction("ToggleGun", IE_Pressed, this, &AUE4PlaygroundCharacter::OnToggleGun);
+
+	//Bind Reload
+	PlayerInputComponent->BindAction("Reload", IE_Pressed, this, &AUE4PlaygroundCharacter::OnReload);
 
 	// Enable touchscreen input
 	EnableTouchscreenMovement(PlayerInputComponent);
@@ -154,7 +162,7 @@ void AUE4PlaygroundCharacter::OnFire()
 	UWorld* const World = GetWorld();
 
 	//if set to use TP gun and Projectile isn't null
-	if (TPProjClass != NULL && CurrentWeapon == Teleport)
+	if (TPProjClass != NULL && CurrentWeapon == Teleport && CurrentTPClip > 0)
 	{
 		if (World != NULL)
 		{
@@ -185,11 +193,12 @@ void AUE4PlaygroundCharacter::OnFire()
 				LastTPShot = World->SpawnActor<AUE4PlaygroundProjectile>(TPProjClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
 				PlayGunSnd();
 				PlayGunAnim();
+				CurrentTPClip--;
 			}
 		}
 	}
 	//If we're using the basic gun
-	else if(ProjectileClass != NULL && CurrentWeapon == Basic)
+	else if(ProjectileClass != NULL && CurrentWeapon == Basic && CurrentBasicClip > 0)
 	{
 		if (World != NULL)
 		{
@@ -214,11 +223,12 @@ void AUE4PlaygroundCharacter::OnFire()
 
 				PlayGunSnd();
 				PlayGunAnim();
+				CurrentBasicClip--;
 			}
 		}
 	}
 	//if we're using burst
-	else if (CurrentWeapon == Burst)
+	else if (CurrentWeapon == Burst && CurrentBurstClip >0)
 	{
 		//Set up Array of Timers
 		BurstHandle2.SetNum(NumOfShots + 1, true);
@@ -228,6 +238,7 @@ void AUE4PlaygroundCharacter::OnFire()
 		{
 			//Set Timers to incriments of TimeBetweenBursts
 			GetWorld()->GetTimerManager().SetTimer(BurstHandle2[i], this, &AUE4PlaygroundCharacter::OnFire2, (0.0f + (TimeBetweenBursts* i)), false);
+			CurrentBurstClip--;
 		}
 	}
 }
@@ -434,5 +445,20 @@ void AUE4PlaygroundCharacter::OnToggleGun()
 	default: break;
 
 	}
+}
+
+void AUE4PlaygroundCharacter::OnReload()
+{
+	switch (CurrentWeapon) {
+	case 0: CurrentBasicClip = BasicGunClip;
+		break;
+	case 1: CurrentBurstClip = BurstGunClip;
+		break;
+	case 2: CurrentTPClip = TPGunClip;
+		break;
+	default:
+		break;
+	}
+
 }
 

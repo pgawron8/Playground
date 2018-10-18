@@ -132,10 +132,23 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TEnumAsByte<Eweapon> CurrentWeapon = Basic;
 
+	//Total Gun Clips
+	const int BasicGunClip = 5;
+	const int BurstGunClip = 9;  //Should be devisible by NumOfShots
+	const int TPGunClip = 3;
+
+	//Current Gun Clips
+	int CurrentBasicClip;
+	int CurrentBurstClip;
+	int CurrentTPClip;
+
 protected:
 
 	//Swapping Guns
 	void OnToggleGun();
+
+	//Reload
+	void OnReload();
 
 	//setting up a burst shot
 	UFUNCTION()
