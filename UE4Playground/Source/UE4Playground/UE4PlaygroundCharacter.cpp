@@ -194,6 +194,7 @@ void AUE4PlaygroundCharacter::OnFire()
 				PlayGunSnd();
 				PlayGunAnim();
 				CurrentTPClip--;
+				DisplayAmmo(CurrentWeapon);
 			}
 		}
 	}
@@ -220,10 +221,10 @@ void AUE4PlaygroundCharacter::OnFire()
 
 				// spawn the projectile at the muzzle
 				World->SpawnActor<AUE4PlaygroundProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
-
 				PlayGunSnd();
 				PlayGunAnim();
 				CurrentBasicClip--;
+				DisplayAmmo(CurrentWeapon);
 			}
 		}
 	}
@@ -238,9 +239,11 @@ void AUE4PlaygroundCharacter::OnFire()
 		{
 			//Set Timers to incriments of TimeBetweenBursts
 			GetWorld()->GetTimerManager().SetTimer(BurstHandle2[i], this, &AUE4PlaygroundCharacter::OnFire2, (0.0f + (TimeBetweenBursts* i)), false);
-			CurrentBurstClip--;
+			
 		}
 	}
+
+	
 }
 
 void AUE4PlaygroundCharacter::OnResetVR()
@@ -381,6 +384,8 @@ void AUE4PlaygroundCharacter::OnFire2()
 			World->SpawnActor<AUE4PlaygroundProjectile>(AltProjClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
 			PlayGunSnd();
 			PlayGunAnim();
+			CurrentBurstClip--;
+			DisplayAmmo(CurrentWeapon);
 		}
 	}
 }
@@ -424,6 +429,35 @@ void AUE4PlaygroundCharacter::OnAltFire()
 	//set up other alt fires later
 }
 
+void AUE4PlaygroundCharacter::DisplayAmmo(Eweapon CWeap)
+{
+
+	FString sToScreen = "Ammo: ";
+	switch (CurrentWeapon)
+	{
+	case 0:
+		sToScreen.AppendInt(CurrentBasicClip);
+		sToScreen.Append("/");
+		sToScreen.AppendInt(BasicGunClip);
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, sToScreen);
+		break;
+	case 1:
+		sToScreen.AppendInt(CurrentBurstClip);
+		sToScreen.Append("/");
+		sToScreen.AppendInt(BurstGunClip);
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, sToScreen);
+		break;
+	case 2:
+		sToScreen.AppendInt(CurrentTPClip);
+		sToScreen.Append("/");
+		sToScreen.AppendInt(TPGunClip);
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, sToScreen);
+		break;
+	default:
+		break;
+	}
+}
+
 void AUE4PlaygroundCharacter::OnToggleGun()
 {
 	switch (CurrentWeapon) {
@@ -431,16 +465,19 @@ void AUE4PlaygroundCharacter::OnToggleGun()
 	case 0: CurrentWeapon = Burst;
 		bIsUsingTPGun = false;
 		FP_Gun->SetMaterial(0, BurstGunMat);
+		DisplayAmmo(CurrentWeapon);
 		break;
 	//burst to teleport gun
 	case 1: CurrentWeapon = Teleport;
 		LastTPShot = nullptr;
 		bIsUsingTPGun = true;
 		FP_Gun->SetMaterial(0, TPGunMat);
+		DisplayAmmo(CurrentWeapon);
 		break;
 	case 2: CurrentWeapon = Basic;
 		bIsUsingTPGun = false;
 		FP_Gun->SetMaterial(0, BasicGunMat);
+		DisplayAmmo(CurrentWeapon);
 		break;
 	default: break;
 
@@ -451,10 +488,13 @@ void AUE4PlaygroundCharacter::OnReload()
 {
 	switch (CurrentWeapon) {
 	case 0: CurrentBasicClip = BasicGunClip;
+		DisplayAmmo(CurrentWeapon);
 		break;
 	case 1: CurrentBurstClip = BurstGunClip;
+		DisplayAmmo(CurrentWeapon);
 		break;
 	case 2: CurrentTPClip = TPGunClip;
+		DisplayAmmo(CurrentWeapon);
 		break;
 	default:
 		break;

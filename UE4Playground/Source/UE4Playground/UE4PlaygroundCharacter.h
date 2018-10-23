@@ -132,7 +132,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TEnumAsByte<Eweapon> CurrentWeapon = Basic;
 
-	//Total Gun Clips
+	//Total Gun Clips. eventually make this BP readwrite so that you can edit without going into code
 	const int BasicGunClip = 5;
 	const int BurstGunClip = 9;  //Should be devisible by NumOfShots
 	const int TPGunClip = 3;
@@ -143,6 +143,9 @@ public:
 	int CurrentTPClip;
 
 protected:
+
+	//printing ammo hopefully
+	void DisplayAmmo(Eweapon CWeap);
 
 	//Swapping Guns
 	void OnToggleGun();
