@@ -462,18 +462,26 @@ void AUE4PlaygroundCharacter::OnToggleGun()
 {
 	switch (CurrentWeapon) {
 	//basic to Burst
-	case 0: CurrentWeapon = Burst;
-		bIsUsingTPGun = false;
-		FP_Gun->SetMaterial(0, BurstGunMat);
-		DisplayAmmo(CurrentWeapon);
-		break;
+	case 0: 
+		if (bBurstGunUnlocked)
+		{
+			CurrentWeapon = Burst;
+			bIsUsingTPGun = false;
+			FP_Gun->SetMaterial(0, BurstGunMat);
+			DisplayAmmo(CurrentWeapon);
+			break;
+		}
 	//burst to teleport gun
-	case 1: CurrentWeapon = Teleport;
-		LastTPShot = nullptr;
-		bIsUsingTPGun = true;
-		FP_Gun->SetMaterial(0, TPGunMat);
-		DisplayAmmo(CurrentWeapon);
-		break;
+	case 1: 
+		if (bTPGunUnlocked)
+		{
+			CurrentWeapon = Teleport;
+			LastTPShot = nullptr;
+			bIsUsingTPGun = true;
+			FP_Gun->SetMaterial(0, TPGunMat);
+			DisplayAmmo(CurrentWeapon);
+			break;
+		}
 	case 2: CurrentWeapon = Basic;
 		bIsUsingTPGun = false;
 		FP_Gun->SetMaterial(0, BasicGunMat);

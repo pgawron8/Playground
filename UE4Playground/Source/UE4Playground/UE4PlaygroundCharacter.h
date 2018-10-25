@@ -69,6 +69,12 @@ public:
 	UPROPERTY(EditAnywhere)
 	class UMaterial* BurstGunMat;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool bTPGunUnlocked = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool bBurstGunUnlocked = false;
+
 protected:
 	virtual void BeginPlay();
 

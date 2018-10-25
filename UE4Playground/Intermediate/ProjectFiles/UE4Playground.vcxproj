@@ -419,9 +419,7 @@
     <None Include="..\..\Config\DefaultGame.ini" />
     <None Include="..\..\Config\DefaultInput.ini" />
     <None Include="..\..\Source\UE4Playground\UE4Playground.Build.cs" />
-    <ClCompile Include="..\..\Source\UE4Playground\TPProjectile.cpp" />
     <ClCompile Include="..\..\Source\UE4Playground\UE4Playground.cpp" />
-    <ClInclude Include="..\..\Source\UE4Playground\TPProjectile.h" />
     <ClInclude Include="..\..\Source\UE4Playground\UE4Playground.h" />
     <ClCompile Include="..\..\Source\UE4Playground\UE4PlaygroundCharacter.cpp" />
     <ClInclude Include="..\..\Source\UE4Playground\UE4PlaygroundCharacter.h" />

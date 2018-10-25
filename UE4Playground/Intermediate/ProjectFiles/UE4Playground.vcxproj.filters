@@ -66,14 +66,4 @@
       <Filter>Source\UE4Playground</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\Source\UE4Playground\TPProjectile.h">
-      <Filter>Source\UE4Playground</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\Source\UE4Playground\TPProjectile.cpp">
-      <Filter>Source\UE4Playground</Filter>
-    </ClCompile>
-  </ItemGroup>
 </Project>

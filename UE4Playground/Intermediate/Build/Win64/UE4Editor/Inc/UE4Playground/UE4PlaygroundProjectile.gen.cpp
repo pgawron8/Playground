@@ -118,6 +118,11 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundProjectile() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bTalktoPlayer_MetaData[];
+#endif
+		static void NewProp_bTalktoPlayer_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bTalktoPlayer;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ProjectileMovement_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ProjectileMovement;
@@ -143,6 +148,17 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundProjectile() {}
 	};
 #endif
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE4PlaygroundProjectile_Statics::NewProp_bTalktoPlayer_MetaData[] = {
+		{ "Category", "UE4PlaygroundProjectile" },
+		{ "ModuleRelativePath", "UE4PlaygroundProjectile.h" },
+	};
+#endif
+	void Z_Construct_UClass_AUE4PlaygroundProjectile_Statics::NewProp_bTalktoPlayer_SetBit(void* Obj)
+	{
+		((AUE4PlaygroundProjectile*)Obj)->bTalktoPlayer = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AUE4PlaygroundProjectile_Statics::NewProp_bTalktoPlayer = { UE4CodeGen_Private::EPropertyClass::Bool, "bTalktoPlayer", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000005, 1, nullptr, sizeof(bool), UE4CodeGen_Private::ENativeBool::Native, sizeof(AUE4PlaygroundProjectile), &Z_Construct_UClass_AUE4PlaygroundProjectile_Statics::NewProp_bTalktoPlayer_SetBit, METADATA_PARAMS(Z_Construct_UClass_AUE4PlaygroundProjectile_Statics::NewProp_bTalktoPlayer_MetaData, ARRAY_COUNT(Z_Construct_UClass_AUE4PlaygroundProjectile_Statics::NewProp_bTalktoPlayer_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE4PlaygroundProjectile_Statics::NewProp_ProjectileMovement_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Movement" },
@@ -162,6 +178,7 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundProjectile() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AUE4PlaygroundProjectile_Statics::NewProp_CollisionComp = { UE4CodeGen_Private::EPropertyClass::Object, "CollisionComp", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x00400000000b0009, 1, nullptr, STRUCT_OFFSET(AUE4PlaygroundProjectile, CollisionComp), Z_Construct_UClass_USphereComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AUE4PlaygroundProjectile_Statics::NewProp_CollisionComp_MetaData, ARRAY_COUNT(Z_Construct_UClass_AUE4PlaygroundProjectile_Statics::NewProp_CollisionComp_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AUE4PlaygroundProjectile_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE4PlaygroundProjectile_Statics::NewProp_bTalktoPlayer,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE4PlaygroundProjectile_Statics::NewProp_ProjectileMovement,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE4PlaygroundProjectile_Statics::NewProp_CollisionComp,
 	};
@@ -188,7 +205,7 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundProjectile() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AUE4PlaygroundProjectile, 3194692591);
+	IMPLEMENT_CLASS(AUE4PlaygroundProjectile, 1245690291);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AUE4PlaygroundProjectile(Z_Construct_UClass_AUE4PlaygroundProjectile, &AUE4PlaygroundProjectile::StaticClass, TEXT("/Script/UE4Playground"), TEXT("AUE4PlaygroundProjectile"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AUE4PlaygroundProjectile);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -67,7 +67,7 @@ void EmptyLinkFunctionForGeneratedCodeTPProjectile() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ATPProjectile, 3600998522);
+	IMPLEMENT_CLASS(ATPProjectile, 1355979370);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_ATPProjectile(Z_Construct_UClass_ATPProjectile, &ATPProjectile::StaticClass, TEXT("/Script/UE4Playground"), TEXT("ATPProjectile"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(ATPProjectile);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

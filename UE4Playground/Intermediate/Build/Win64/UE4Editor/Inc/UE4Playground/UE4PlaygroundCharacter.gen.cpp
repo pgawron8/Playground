@@ -181,6 +181,16 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_BaseTurnRate;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bBurstGunUnlocked_MetaData[];
+#endif
+		static void NewProp_bBurstGunUnlocked_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bBurstGunUnlocked;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bTPGunUnlocked_MetaData[];
+#endif
+		static void NewProp_bTPGunUnlocked_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bTPGunUnlocked;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_BurstGunMat_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_BurstGunMat;
@@ -363,6 +373,28 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_BaseTurnRate = { UE4CodeGen_Private::EPropertyClass::Float, "BaseTurnRate", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000020015, 1, nullptr, STRUCT_OFFSET(AUE4PlaygroundCharacter, BaseTurnRate), METADATA_PARAMS(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_BaseTurnRate_MetaData, ARRAY_COUNT(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_BaseTurnRate_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_bBurstGunUnlocked_MetaData[] = {
+		{ "Category", "UE4PlaygroundCharacter" },
+		{ "ModuleRelativePath", "UE4PlaygroundCharacter.h" },
+	};
+#endif
+	void Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_bBurstGunUnlocked_SetBit(void* Obj)
+	{
+		((AUE4PlaygroundCharacter*)Obj)->bBurstGunUnlocked = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_bBurstGunUnlocked = { UE4CodeGen_Private::EPropertyClass::Bool, "bBurstGunUnlocked", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000005, 1, nullptr, sizeof(bool), UE4CodeGen_Private::ENativeBool::Native, sizeof(AUE4PlaygroundCharacter), &Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_bBurstGunUnlocked_SetBit, METADATA_PARAMS(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_bBurstGunUnlocked_MetaData, ARRAY_COUNT(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_bBurstGunUnlocked_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_bTPGunUnlocked_MetaData[] = {
+		{ "Category", "UE4PlaygroundCharacter" },
+		{ "ModuleRelativePath", "UE4PlaygroundCharacter.h" },
+	};
+#endif
+	void Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_bTPGunUnlocked_SetBit(void* Obj)
+	{
+		((AUE4PlaygroundCharacter*)Obj)->bTPGunUnlocked = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_bTPGunUnlocked = { UE4CodeGen_Private::EPropertyClass::Bool, "bTPGunUnlocked", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000005, 1, nullptr, sizeof(bool), UE4CodeGen_Private::ENativeBool::Native, sizeof(AUE4PlaygroundCharacter), &Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_bTPGunUnlocked_SetBit, METADATA_PARAMS(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_bTPGunUnlocked_MetaData, ARRAY_COUNT(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_bTPGunUnlocked_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_BurstGunMat_MetaData[] = {
 		{ "Category", "UE4PlaygroundCharacter" },
 		{ "ModuleRelativePath", "UE4PlaygroundCharacter.h" },
@@ -476,6 +508,8 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_GunOffset,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_BaseLookUpRate,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_BaseTurnRate,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_bBurstGunUnlocked,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_bTPGunUnlocked,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_BurstGunMat,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_TPGunMat,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_BasicGunMat,
@@ -511,7 +545,7 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AUE4PlaygroundCharacter, 3180382190);
+	IMPLEMENT_CLASS(AUE4PlaygroundCharacter, 3154565159);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AUE4PlaygroundCharacter(Z_Construct_UClass_AUE4PlaygroundCharacter, &AUE4PlaygroundCharacter::StaticClass, TEXT("/Script/UE4Playground"), TEXT("AUE4PlaygroundCharacter"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AUE4PlaygroundCharacter);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -3,6 +3,9 @@
 #include "UE4PlaygroundProjectile.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Components/SphereComponent.h"
+#include "Runtime/Engine/Classes/Kismet/GameplayStatics.h"
+#include "Engine/World.h"
+#include "UE4PlaygroundCharacter.h"
 
 AUE4PlaygroundProjectile::AUE4PlaygroundProjectile() 
 {
@@ -43,4 +46,27 @@ void AUE4PlaygroundProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* Other
 		Destroy();
 	}
 }
+
+void AUE4PlaygroundProjectile::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	//if set to have to report to player
+	if (bTalktoPlayer)
+	{
+		//Find the player character
+		TArray<AActor*> FoundActors;
+		UGameplayStatics::GetAllActorsOfClass(GetWorld(), AUE4PlaygroundCharacter::StaticClass(), FoundActors);
+
+		//First (only player)
+		if (FoundActors[0] != nullptr)
+		{
+			//set last TP shot null
+			Cast<AUE4PlaygroundCharacter>(FoundActors[0])->LastTPShot = nullptr;
+
+			//Purpose of this is to remove issue where you can still TP to a dead projectile
+		}
+
+	}
+	Super::EndPlay(EndPlayReason);
+}
+
 
