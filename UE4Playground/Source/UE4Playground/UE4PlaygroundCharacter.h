@@ -75,6 +75,12 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		bool bBurstGunUnlocked = false;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool bFirstTPGrab = true;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool bFirstBurstGrab = true;
+		
 protected:
 	virtual void BeginPlay();
 
@@ -155,6 +161,9 @@ protected:
 
 	//Swapping Guns
 	void OnToggleGun();
+
+	UFUNCTION(BlueprintCallable)
+	void SetGun(Eweapon GunToSet);
 
 	//Reload
 	void OnReload();

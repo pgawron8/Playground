@@ -21,6 +21,15 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 		P_NATIVE_BEGIN; \
 		P_THIS->OnFire2(); \
 		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execSetGun) \
+	{ \
+		P_GET_PROPERTY(UByteProperty,Z_Param_GunToSet); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->SetGun(Eweapon(Z_Param_GunToSet)); \
+		P_NATIVE_END; \
 	}
 
 
@@ -31,6 +40,15 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
 		P_THIS->OnFire2(); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execSetGun) \
+	{ \
+		P_GET_PROPERTY(UByteProperty,Z_Param_GunToSet); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->SetGun(Eweapon(Z_Param_GunToSet)); \
 		P_NATIVE_END; \
 	}
 
