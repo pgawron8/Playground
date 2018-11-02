@@ -162,7 +162,7 @@ void AUE4PlaygroundCharacter::OnFire()
 	UWorld* const World = GetWorld();
 
 	//if set to use TP gun and Projectile isn't null
-	if (TPProjClass != NULL && CurrentWeapon == Teleport && CurrentTPClip > 0)
+	if (TPProjClass != NULL && CurrentWeapon == Teleport && CurrentActiveClip > 0)
 	{
 		if (World != NULL)
 		{
@@ -193,13 +193,13 @@ void AUE4PlaygroundCharacter::OnFire()
 				LastTPShot = World->SpawnActor<AUE4PlaygroundProjectile>(TPProjClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
 				PlayGunSnd();
 				PlayGunAnim();
-				CurrentTPClip--;
+				CurrentActiveClip--;
 				DisplayAmmo(CurrentWeapon);
 			}
 		}
 	}
 	//If we're using the basic gun
-	else if(ProjectileClass != NULL && CurrentWeapon == Basic && CurrentBasicClip > 0)
+	else if(ProjectileClass != NULL && CurrentWeapon == Basic && CurrentActiveClip > 0)
 	{
 		if (World != NULL)
 		{
@@ -223,13 +223,13 @@ void AUE4PlaygroundCharacter::OnFire()
 				World->SpawnActor<AUE4PlaygroundProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
 				PlayGunSnd();
 				PlayGunAnim();
-				CurrentBasicClip--;
+				CurrentActiveClip--;
 				DisplayAmmo(CurrentWeapon);
 			}
 		}
 	}
 	//if we're using burst
-	else if (CurrentWeapon == Burst && CurrentBurstClip >0)
+	else if (CurrentWeapon == Burst && CurrentActiveClip >0)
 	{
 		//Set up Array of Timers
 		BurstHandle2.SetNum(NumOfShots + 1, true);
@@ -384,7 +384,7 @@ void AUE4PlaygroundCharacter::OnFire2()
 			World->SpawnActor<AUE4PlaygroundProjectile>(AltProjClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
 			PlayGunSnd();
 			PlayGunAnim();
-			CurrentBurstClip--;
+			CurrentActiveClip--;
 			DisplayAmmo(CurrentWeapon);
 		}
 	}
@@ -433,14 +433,14 @@ void AUE4PlaygroundCharacter::DisplayAmmo(Eweapon CWeap)
 {
 
 	FString sToScreen = "Ammo: ";
-	switch (CurrentWeapon)
-	{
-	case 0:
-		sToScreen.AppendInt(CurrentBasicClip);
+	//switch (CurrentWeapon)
+	//{
+	//case 0:
+		sToScreen.AppendInt(CurrentActiveClip);
 		sToScreen.Append("/");
-		sToScreen.AppendInt(BasicGunClip);
+		sToScreen.AppendInt(TotalActiveClip);
 		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, sToScreen);
-		break;
+		/*break;
 	case 1:
 		sToScreen.AppendInt(CurrentBurstClip);
 		sToScreen.Append("/");
@@ -455,7 +455,7 @@ void AUE4PlaygroundCharacter::DisplayAmmo(Eweapon CWeap)
 		break;
 	default:
 		break;
-	}
+	}*/
 }
 
 void AUE4PlaygroundCharacter::OnToggleGun()
@@ -468,6 +468,7 @@ void AUE4PlaygroundCharacter::OnToggleGun()
 			CurrentWeapon = Burst;
 			bIsUsingTPGun = false;
 			FP_Gun->SetMaterial(0, BurstGunMat);
+			TotalActiveClip = BurstGunClip;
 			DisplayAmmo(CurrentWeapon);
 			break;
 		}
@@ -479,12 +480,14 @@ void AUE4PlaygroundCharacter::OnToggleGun()
 			LastTPShot = nullptr;
 			bIsUsingTPGun = true;
 			FP_Gun->SetMaterial(0, TPGunMat);
+			TotalActiveClip = TPGunClip;
 			DisplayAmmo(CurrentWeapon);
 			break;
 		}
 	case 2: CurrentWeapon = Basic;
 		bIsUsingTPGun = false;
 		FP_Gun->SetMaterial(0, BasicGunMat);
+		TotalActiveClip = BasicGunClip;
 		DisplayAmmo(CurrentWeapon);
 		break;
 	default: break;
@@ -529,13 +532,16 @@ void AUE4PlaygroundCharacter::SetGun(Eweapon GunToSet)
 void AUE4PlaygroundCharacter::OnReload()
 {
 	switch (CurrentWeapon) {
-	case 0: CurrentBasicClip = BasicGunClip;
+	case 0: CurrentActiveClip = BasicGunClip;
+		TotalActiveClip = BasicGunClip;
 		DisplayAmmo(CurrentWeapon);
 		break;
-	case 1: CurrentBurstClip = BurstGunClip;
+	case 1: CurrentActiveClip = BurstGunClip;
+		TotalActiveClip = BurstGunClip;
 		DisplayAmmo(CurrentWeapon);
 		break;
-	case 2: CurrentTPClip = TPGunClip;
+	case 2: CurrentActiveClip = TPGunClip;
+		TotalActiveClip = TPGunClip;
 		DisplayAmmo(CurrentWeapon);
 		break;
 	default:

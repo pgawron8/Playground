@@ -145,14 +145,23 @@ public:
 	TEnumAsByte<Eweapon> CurrentWeapon = Basic;
 
 	//Total Gun Clips. eventually make this BP readwrite so that you can edit without going into code
+
 	const int BasicGunClip = 5;
 	const int BurstGunClip = 9;  //Should be devisible by NumOfShots
 	const int TPGunClip = 3;
 
 	//Current Gun Clips
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	int CurrentBasicClip;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	int CurrentBurstClip;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	int CurrentTPClip;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+		int CurrentActiveClip =5;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+		int TotalActiveClip = 5;
 
 protected:
 

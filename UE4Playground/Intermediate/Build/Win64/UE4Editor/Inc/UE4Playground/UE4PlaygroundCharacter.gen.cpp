@@ -157,6 +157,26 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_TotalActiveClip_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_TotalActiveClip;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CurrentActiveClip_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_CurrentActiveClip;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CurrentTPClip_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_CurrentTPClip;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CurrentBurstClip_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_CurrentBurstClip;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CurrentBasicClip_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_CurrentBasicClip;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CurrentWeapon_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FBytePropertyParams NewProp_CurrentWeapon;
@@ -297,6 +317,42 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 		{ "ModuleRelativePath", "UE4PlaygroundCharacter.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_TotalActiveClip_MetaData[] = {
+		{ "Category", "UE4PlaygroundCharacter" },
+		{ "ModuleRelativePath", "UE4PlaygroundCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_TotalActiveClip = { UE4CodeGen_Private::EPropertyClass::Int, "TotalActiveClip", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000020015, 1, nullptr, STRUCT_OFFSET(AUE4PlaygroundCharacter, TotalActiveClip), METADATA_PARAMS(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_TotalActiveClip_MetaData, ARRAY_COUNT(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_TotalActiveClip_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_CurrentActiveClip_MetaData[] = {
+		{ "Category", "UE4PlaygroundCharacter" },
+		{ "ModuleRelativePath", "UE4PlaygroundCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_CurrentActiveClip = { UE4CodeGen_Private::EPropertyClass::Int, "CurrentActiveClip", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000020015, 1, nullptr, STRUCT_OFFSET(AUE4PlaygroundCharacter, CurrentActiveClip), METADATA_PARAMS(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_CurrentActiveClip_MetaData, ARRAY_COUNT(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_CurrentActiveClip_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_CurrentTPClip_MetaData[] = {
+		{ "Category", "UE4PlaygroundCharacter" },
+		{ "ModuleRelativePath", "UE4PlaygroundCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_CurrentTPClip = { UE4CodeGen_Private::EPropertyClass::Int, "CurrentTPClip", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000020015, 1, nullptr, STRUCT_OFFSET(AUE4PlaygroundCharacter, CurrentTPClip), METADATA_PARAMS(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_CurrentTPClip_MetaData, ARRAY_COUNT(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_CurrentTPClip_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_CurrentBurstClip_MetaData[] = {
+		{ "Category", "UE4PlaygroundCharacter" },
+		{ "ModuleRelativePath", "UE4PlaygroundCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_CurrentBurstClip = { UE4CodeGen_Private::EPropertyClass::Int, "CurrentBurstClip", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000020015, 1, nullptr, STRUCT_OFFSET(AUE4PlaygroundCharacter, CurrentBurstClip), METADATA_PARAMS(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_CurrentBurstClip_MetaData, ARRAY_COUNT(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_CurrentBurstClip_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_CurrentBasicClip_MetaData[] = {
+		{ "Category", "UE4PlaygroundCharacter" },
+		{ "ModuleRelativePath", "UE4PlaygroundCharacter.h" },
+		{ "ToolTip", "Current Gun Clips" },
+	};
+#endif
+	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_CurrentBasicClip = { UE4CodeGen_Private::EPropertyClass::Int, "CurrentBasicClip", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000020015, 1, nullptr, STRUCT_OFFSET(AUE4PlaygroundCharacter, CurrentBasicClip), METADATA_PARAMS(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_CurrentBasicClip_MetaData, ARRAY_COUNT(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_CurrentBasicClip_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_CurrentWeapon_MetaData[] = {
 		{ "Category", "UE4PlaygroundCharacter" },
@@ -561,6 +617,11 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_Mesh1P = { UE4CodeGen_Private::EPropertyClass::Object, "Mesh1P", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x00400000000b0009, 1, nullptr, STRUCT_OFFSET(AUE4PlaygroundCharacter, Mesh1P), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_Mesh1P_MetaData, ARRAY_COUNT(Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_Mesh1P_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_TotalActiveClip,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_CurrentActiveClip,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_CurrentTPClip,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_CurrentBurstClip,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_CurrentBasicClip,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_CurrentWeapon,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_bIsUsingTPGun,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::NewProp_NumOfShots,
@@ -614,7 +675,7 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AUE4PlaygroundCharacter, 59952225);
+	IMPLEMENT_CLASS(AUE4PlaygroundCharacter, 1882053710);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AUE4PlaygroundCharacter(Z_Construct_UClass_AUE4PlaygroundCharacter, &AUE4PlaygroundCharacter::StaticClass, TEXT("/Script/UE4Playground"), TEXT("AUE4PlaygroundCharacter"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AUE4PlaygroundCharacter);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
