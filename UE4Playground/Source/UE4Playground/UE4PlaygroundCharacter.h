@@ -146,9 +146,9 @@ public:
 
 	//Total Gun Clips. eventually make this BP readwrite so that you can edit without going into code
 
-	const int BasicGunClip = 5;
-	const int BurstGunClip = 9;  //Should be devisible by NumOfShots
-	const int TPGunClip = 3;
+	const int BasicClipTotal = 5;
+	const int BurstClipTotal = 9;  //Should be devisible by NumOfShots
+	const int TPClipTotal = 3;
 
 	//Current Gun Clips
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
