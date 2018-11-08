@@ -30,6 +30,14 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 		P_NATIVE_BEGIN; \
 		P_THIS->SetGun(Eweapon(Z_Param_GunToSet)); \
 		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execOnToggleGun) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->OnToggleGun(); \
+		P_NATIVE_END; \
 	}
 
 
@@ -49,6 +57,14 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
 		P_THIS->SetGun(Eweapon(Z_Param_GunToSet)); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execOnToggleGun) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->OnToggleGun(); \
 		P_NATIVE_END; \
 	}
 

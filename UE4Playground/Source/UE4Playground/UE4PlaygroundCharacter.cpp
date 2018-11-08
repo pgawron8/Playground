@@ -463,12 +463,12 @@ void AUE4PlaygroundCharacter::OnToggleGun()
 	switch (CurrentWeapon) {
 	//basic to Burst
 	case 0: 
+		CurrentBasicClip = CurrentActiveClip;
 		if (bBurstGunUnlocked)
 		{
 			CurrentWeapon = Burst;
 			bIsUsingTPGun = false;
 			FP_Gun->SetMaterial(0, BurstGunMat);
-			CurrentBasicClip = CurrentActiveClip;
 			TotalActiveClip = BurstClipTotal;
 			CurrentActiveClip = CurrentBurstClip;
 			DisplayAmmo(CurrentWeapon);
@@ -476,22 +476,23 @@ void AUE4PlaygroundCharacter::OnToggleGun()
 		}
 	//burst to teleport gun
 	case 1: 
+		CurrentBurstClip = CurrentActiveClip;
 		if (bTPGunUnlocked)
 		{
 			CurrentWeapon = Teleport;
 			LastTPShot = nullptr;
 			bIsUsingTPGun = true;
 			FP_Gun->SetMaterial(0, TPGunMat);
-			CurrentBurstClip = CurrentActiveClip;
 			TotalActiveClip = TPClipTotal;
 			CurrentActiveClip = CurrentTPClip;
 			DisplayAmmo(CurrentWeapon);
 			break;
 		}
-	case 2: CurrentWeapon = Basic;
+	case 2: 
+		CurrentTPClip = CurrentActiveClip;
+		CurrentWeapon = Basic;
 		bIsUsingTPGun = false;
 		FP_Gun->SetMaterial(0, BasicGunMat);
-		CurrentActiveClip = CurrentTPClip;
 		TotalActiveClip = BasicClipTotal;
 		CurrentActiveClip = CurrentBasicClip;
 		DisplayAmmo(CurrentWeapon);
@@ -506,27 +507,36 @@ void AUE4PlaygroundCharacter::SetGun(Eweapon GunToSet)
 	switch (GunToSet) {
 		//basic to Burst
 	case 1:
+		//CurrentBasicClip = CurrentActiveClip;
 		if (bBurstGunUnlocked)
 		{
 			bIsUsingTPGun = false;
 			FP_Gun->SetMaterial(0, BurstGunMat);
+			TotalActiveClip = BurstClipTotal;
+			CurrentActiveClip = CurrentBurstClip;
 			DisplayAmmo(GunToSet);
 			break;
 		}
 		//burst to teleport gun
 	case 2:
+		//CurrentBurstClip = CurrentActiveClip;
 		if (bTPGunUnlocked)
 		{
 			LastTPShot = nullptr;
 			bIsUsingTPGun = true;
 			FP_Gun->SetMaterial(0, TPGunMat);
+			TotalActiveClip = TPClipTotal;
+			CurrentActiveClip = CurrentTPClip;
 			DisplayAmmo(GunToSet);
 			break;
 		}
 	case 0:
+		//CurrentTPClip = CurrentActiveClip;
 		bIsUsingTPGun = false;
 		FP_Gun->SetMaterial(0, BasicGunMat);
 		DisplayAmmo(GunToSet);
+		TotalActiveClip = BasicClipTotal;
+		CurrentActiveClip = CurrentBasicClip;
 		break;
 	default: break;
 

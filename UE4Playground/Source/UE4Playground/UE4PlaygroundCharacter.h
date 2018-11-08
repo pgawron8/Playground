@@ -169,6 +169,7 @@ protected:
 	void DisplayAmmo(Eweapon CWeap);
 
 	//Swapping Guns
+	UFUNCTION(BlueprintCallable)
 	void OnToggleGun();
 
 	UFUNCTION(BlueprintCallable)

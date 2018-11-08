@@ -19,8 +19,8 @@ void EmptyLinkFunctionForGeneratedCodeUE4Playground_init() {}
 			static const UE4CodeGen_Private::FPackageParams PackageParams = {
 				"/Script/UE4Playground",
 				PKG_CompiledIn | 0x00000000,
-				0x20867193,
-				0x8E334476,
+				0xF25DE059,
+				0xDA132B35,
 				nullptr, 0,
 				METADATA_PARAMS(nullptr, 0)
 			};

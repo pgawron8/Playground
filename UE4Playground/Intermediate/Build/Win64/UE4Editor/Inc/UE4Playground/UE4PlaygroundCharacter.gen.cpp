@@ -19,6 +19,7 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 	UE4PLAYGROUND_API UClass* Z_Construct_UClass_AUE4PlaygroundCharacter();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	UE4PLAYGROUND_API UFunction* Z_Construct_UFunction_AUE4PlaygroundCharacter_OnFire2();
+	UE4PLAYGROUND_API UFunction* Z_Construct_UFunction_AUE4PlaygroundCharacter_OnToggleGun();
 	UE4PLAYGROUND_API UFunction* Z_Construct_UFunction_AUE4PlaygroundCharacter_SetGun();
 	ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USoundBase_NoRegister();
@@ -86,6 +87,7 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 		UClass* Class = AUE4PlaygroundCharacter::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "OnFire2", &AUE4PlaygroundCharacter::execOnFire2 },
+			{ "OnToggleGun", &AUE4PlaygroundCharacter::execOnToggleGun },
 			{ "SetGun", &AUE4PlaygroundCharacter::execSetGun },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, ARRAY_COUNT(Funcs));
@@ -110,6 +112,29 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AUE4PlaygroundCharacter_OnFire2_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AUE4PlaygroundCharacter_OnToggleGun_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AUE4PlaygroundCharacter_OnToggleGun_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "UE4PlaygroundCharacter.h" },
+		{ "ToolTip", "Swapping Guns" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AUE4PlaygroundCharacter_OnToggleGun_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AUE4PlaygroundCharacter, "OnToggleGun", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x04080401, 0, nullptr, 0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AUE4PlaygroundCharacter_OnToggleGun_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AUE4PlaygroundCharacter_OnToggleGun_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AUE4PlaygroundCharacter_OnToggleGun()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AUE4PlaygroundCharacter_OnToggleGun_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -308,6 +333,7 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AUE4PlaygroundCharacter_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AUE4PlaygroundCharacter_OnFire2, "OnFire2" }, // 1106483391
+		{ &Z_Construct_UFunction_AUE4PlaygroundCharacter_OnToggleGun, "OnToggleGun" }, // 2626312352
 		{ &Z_Construct_UFunction_AUE4PlaygroundCharacter_SetGun, "SetGun" }, // 643530688
 	};
 #if WITH_METADATA
@@ -675,7 +701,7 @@ void EmptyLinkFunctionForGeneratedCodeUE4PlaygroundCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AUE4PlaygroundCharacter, 1882053710);
+	IMPLEMENT_CLASS(AUE4PlaygroundCharacter, 1122544125);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AUE4PlaygroundCharacter(Z_Construct_UClass_AUE4PlaygroundCharacter, &AUE4PlaygroundCharacter::StaticClass, TEXT("/Script/UE4Playground"), TEXT("AUE4PlaygroundCharacter"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AUE4PlaygroundCharacter);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
