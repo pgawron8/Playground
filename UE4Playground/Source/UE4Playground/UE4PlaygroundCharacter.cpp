@@ -466,6 +466,7 @@ void AUE4PlaygroundCharacter::OnToggleGun()
 		CurrentBasicClip = CurrentActiveClip;
 		if (bBurstGunUnlocked)
 		{
+			//CurrentBasicClip = CurrentActiveClip;
 			CurrentWeapon = Burst;
 			bIsUsingTPGun = false;
 			FP_Gun->SetMaterial(0, BurstGunMat);
@@ -479,6 +480,7 @@ void AUE4PlaygroundCharacter::OnToggleGun()
 		CurrentBurstClip = CurrentActiveClip;
 		if (bTPGunUnlocked)
 		{
+			//CurrentBurstClip = CurrentActiveClip;
 			CurrentWeapon = Teleport;
 			LastTPShot = nullptr;
 			bIsUsingTPGun = true;
