@@ -509,13 +509,19 @@ void AUE4PlaygroundCharacter::SetGun(Eweapon GunToSet)
 	switch (GunToSet) {
 		//basic to Burst
 	case 1:
-		//CurrentBasicClip = CurrentActiveClip;
 		if (bBurstGunUnlocked)
 		{
+			// using TP
 			bIsUsingTPGun = false;
+			//Set Material
 			FP_Gun->SetMaterial(0, BurstGunMat);
+
+			//set up ammo count
 			TotalActiveClip = BurstClipTotal;
-			CurrentActiveClip = CurrentBurstClip;
+			//hard code for now.
+			CurrentActiveClip = 9;// CurrentBurstClip;
+
+			//update ammo counts
 			DisplayAmmo(GunToSet);
 			break;
 		}
@@ -528,7 +534,7 @@ void AUE4PlaygroundCharacter::SetGun(Eweapon GunToSet)
 			bIsUsingTPGun = true;
 			FP_Gun->SetMaterial(0, TPGunMat);
 			TotalActiveClip = TPClipTotal;
-			CurrentActiveClip = CurrentTPClip;
+			CurrentActiveClip = 3;//CurrentTPClip;
 			DisplayAmmo(GunToSet);
 			break;
 		}

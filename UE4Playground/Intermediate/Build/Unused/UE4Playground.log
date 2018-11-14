@@ -2,9 +2,9 @@
   Compiling game modules for hot reload
   Building 3 actions with 4 processes...
     [1/3] UE4PlaygroundCharacter.cpp
-    [2/3] UE4Editor-UE4Playground-2448.lib
-       Creating library C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Intermediate\Build\Win64\UE4Editor\Development\UE4Playground\UE4Editor-UE4Playground-2448.lib and object C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Intermediate\Build\Win64\UE4Editor\Development\UE4Playground\UE4Editor-UE4Playground-2448.exp
-    [3/3] UE4Editor-UE4Playground-2448.dll
-       Creating library C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Intermediate\Build\Win64\UE4Editor\Development\UE4Playground\UE4Editor-UE4Playground-2448.suppressed.lib and object C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Intermediate\Build\Win64\UE4Editor\Development\UE4Playground\UE4Editor-UE4Playground-2448.suppressed.exp
+    [2/3] UE4Editor-UE4Playground-5029.lib
+       Creating library C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Intermediate\Build\Win64\UE4Editor\Development\UE4Playground\UE4Editor-UE4Playground-5029.lib and object C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Intermediate\Build\Win64\UE4Editor\Development\UE4Playground\UE4Editor-UE4Playground-5029.exp
+    [3/3] UE4Editor-UE4Playground-5029.dll
+       Creating library C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Intermediate\Build\Win64\UE4Editor\Development\UE4Playground\UE4Editor-UE4Playground-5029.suppressed.lib and object C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Intermediate\Build\Win64\UE4Editor\Development\UE4Playground\UE4Editor-UE4Playground-5029.suppressed.exp
   Deploying UE4PlaygroundEditor Win64 Development...
-  Total build time: 15.86 seconds (Parallel executor: 14.01 seconds)
+  Total build time: 41.14 seconds (Parallel executor: 38.32 seconds)
