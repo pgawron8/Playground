@@ -16,11 +16,11 @@
 	},
 	"BuildProducts": [
 		{
-			"Path": "$(ProjectDir)/Binaries/Win64/UE4Editor-UE4Playground-5546.dll",
+			"Path": "$(ProjectDir)/Binaries/Win64/UE4Editor-UE4Playground-4649.dll",
 			"Type": "DynamicLibrary"
 		},
 		{
-			"Path": "$(ProjectDir)/Binaries/Win64/UE4Editor-UE4Playground-5546.pdb",
+			"Path": "$(ProjectDir)/Binaries/Win64/UE4Editor-UE4Playground-4649.pdb",
 			"Type": "SymbolFile"
 		},
 		{

@@ -4,7 +4,7 @@
 	<ItemGroup>
 		<None Include="..\..\UE4Playground.uproject" />
 		<Filter Include="Source">
-			<UniqueIdentifier>{32DF441E-E766-4343-81F1-86B7C02E1AAD}</UniqueIdentifier>
+			<UniqueIdentifier>{BC2158DC-950A-43E9-9D78-C6E7BAE112A9}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Source\UE4Playground.Target.cs">
 			<Filter>Source</Filter>
@@ -13,7 +13,7 @@
 			<Filter>Source</Filter>
 		</None >
 		<Filter Include="Config">
-			<UniqueIdentifier>{B8D72246-82A3-4DDF-A755-B000526CE9A0}</UniqueIdentifier>
+			<UniqueIdentifier>{C4842547-A516-42EA-AC2C-1BB0E6EDBEA8}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Config\DefaultEditor.ini">
 			<Filter>Config</Filter>
@@ -31,8 +31,14 @@
 			<Filter>Config</Filter>
 		</None >
 		<Filter Include="Source\UE4Playground">
-			<UniqueIdentifier>{F992952D-B8C5-4622-9BE7-917981C36B2D}</UniqueIdentifier>
+			<UniqueIdentifier>{D81EA144-F6FE-4952-9089-52D476D5E184}</UniqueIdentifier>
 		</Filter>
+		<ClCompile Include="..\..\Source\UE4Playground\Target.cpp">
+			<Filter>Source\UE4Playground</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\UE4Playground\Target.h">
+			<Filter>Source\UE4Playground</Filter>
+		</ClInclude >
 		<ClCompile Include="..\..\Source\UE4Playground\TPProjectile.cpp">
 			<Filter>Source\UE4Playground</Filter>
 		</ClCompile >
