@@ -7,6 +7,8 @@
 #include "UE4PlaygroundProjectile.h"
 #include "Runtime/Engine/Classes/Engine/StaticMesh.h"
 #include "Runtime/CoreUObject/Public/UObject/ConstructorHelpers.h"
+#include "Engine.h"
+#include "UE4PlaygroundCharacter.h"
 // Sets default values
 ATarget::ATarget()
 {
@@ -15,18 +17,21 @@ ATarget::ATarget()
 
 	StatMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Root"));
 
-	StatMesh->SetupAttachment(RootComponent);
+	//StatMesh->SetupAttachment(RootComponent);
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> StatMeshAsset(TEXT("/Game/Geometry/Meshes/1M_Cube.1M_Cube"));
 	if (StatMeshAsset.Succeeded())
 	{
 		StatMesh->SetStaticMesh(StatMeshAsset.Object);
 		StatMesh->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f));
 	}
-	//RootComponent = StatMesh;
+	RootComponent = StatMesh;
 
+	
 	// Use a sphere as a simple collision representation
 	CollisionComp = CreateDefaultSubobject<UBoxComponent>(TEXT("SphereComp"));
+	CollisionComp->SetupAttachment(RootComponent);
 	//CollisionComp->InitBoxExtent(FVector(1.0f, 1.0f, 1.0f));
+	//CollisionComp->SetRelativeLocation(StatMesh->RelativeLocation);
 	CollisionComp->BodyInstance.SetCollisionProfileName("Target");
 	CollisionComp->OnComponentHit.AddDynamic(this, &ATarget::OnHit);		// set up a notification for when this component hits something blocking
 
@@ -49,10 +54,17 @@ void ATarget::Tick(float DeltaTime)
 
 void ATarget::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
-	if (OtherActor == Cast<AUE4PlaygroundProjectile>(OtherActor) )
+	if (OtherActor == Cast<AUE4PlaygroundProjectile>(OtherActor))
 	{
-		bAddScore = true;
+		TArray<AActor*> FoundActors;
+		UGameplayStatics::GetAllActorsOfClass(GetWorld(), AUE4PlaygroundCharacter::StaticClass(), FoundActors);
+		Cast<AUE4PlaygroundCharacter>(FoundActors[0])->IncreaseScore();
 
+
+		//FString DebugHitMesg = "Hit detected";
+		//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, DebugHitMesg);
+
+		Destroy();
 	}
 }
 

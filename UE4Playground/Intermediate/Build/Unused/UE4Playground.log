@@ -1,5 +1,11 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build.
   Compiling game modules for hot reload
-  Target is up to date
+  Building 4 actions with 4 processes...
+    [1/4] Target.cpp
+    [2/4] UE4PlaygroundCharacter.cpp
+    [3/4] UE4Editor-UE4Playground-4244.lib
+       Creating library C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Intermediate\Build\Win64\UE4Editor\Development\UE4Playground\UE4Editor-UE4Playground-4244.lib and object C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Intermediate\Build\Win64\UE4Editor\Development\UE4Playground\UE4Editor-UE4Playground-4244.exp
+    [4/4] UE4Editor-UE4Playground-4244.dll
+       Creating library C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Intermediate\Build\Win64\UE4Editor\Development\UE4Playground\UE4Editor-UE4Playground-4244.suppressed.lib and object C:\Users\Peter\Documents\GitHub\Playground\UE4Playground\Intermediate\Build\Win64\UE4Editor\Development\UE4Playground\UE4Editor-UE4Playground-4244.suppressed.exp
   Deploying UE4PlaygroundEditor Win64 Development...
-  Total build time: 1.20 seconds (NoActionsToExecute executor: 0.00 seconds)
+  Total build time: 17.72 seconds (Parallel executor: 16.38 seconds)

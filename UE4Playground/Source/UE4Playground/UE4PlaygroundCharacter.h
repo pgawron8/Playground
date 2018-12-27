@@ -80,6 +80,8 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		bool bFirstBurstGrab = true;
+
+	int PlayerScore = 0;
 		
 protected:
 	virtual void BeginPlay();
@@ -163,7 +165,14 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 		int TotalActiveClip = 5;
 
+
+	void IncreaseScore();
+
 protected:
+
+	//void IncreaseScore();
+
+	void DisplayScore();
 
 	//printing ammo hopefully
 	void DisplayAmmo(Eweapon CWeap);

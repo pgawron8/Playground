@@ -17,7 +17,7 @@ public:
 	ATarget();
 
 	/** Sphere collision component */
-	UPROPERTY(VisibleDefaultsOnly, Category = mesh)
+	UPROPERTY(BlueprintReadWrite, Category = mesh)
 		class UBoxComponent* CollisionComp;
 
 	UPROPERTY(BlueprintReadWrite, Category = mesh)

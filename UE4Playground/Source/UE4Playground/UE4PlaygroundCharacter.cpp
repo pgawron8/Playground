@@ -574,3 +574,16 @@ void AUE4PlaygroundCharacter::OnReload()
 
 }
 
+void AUE4PlaygroundCharacter::IncreaseScore()
+{
+	PlayerScore++;
+	DisplayScore();
+}
+
+void AUE4PlaygroundCharacter::DisplayScore()
+{
+	FString DebugScore = "Score: ";
+	DebugScore.AppendInt(PlayerScore);
+	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, DebugScore);
+}
+
